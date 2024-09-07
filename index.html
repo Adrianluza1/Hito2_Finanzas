@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Principal</title>
+    <link rel="stylesheet" href="assets/index.css"> <!-- Enlace al archivo CSS -->
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <h1>Bienvenido al Sistema de Gestión</h1>
+        <!-- Botones de Navegación centrados -->
+        <div class="menu">
+            <button onclick="navigateTo('configuracion_tasas.html')">Configuración de Tasas</button>
+            <button onclick="navigateTo('consolidacion_reporte.html')">Consolidación de Reporte</button>
+            <button onclick="navigateTo('impresion_reporte.html')">Impresión de Reporte</button>
+        </div>
+        <!-- Botón de Cerrar Sesión alineado a la derecha -->
+        <div class="logout">
+            <button onclick="logout()">Cerrar Sesión</button>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal -->
+    <div class="main-container">
+        <!-- Contenido Principal Aquí -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <p>&copy; 2024 SI642-2402-SI82 . Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="assets/index.js"></script> <!-- Enlace al archivo JavaScript -->
+</body>
+</html>
