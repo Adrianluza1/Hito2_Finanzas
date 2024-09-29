@@ -30,12 +30,7 @@ export default {
   },
   methods: {
     handleLogin() {
-      // Lógica de autenticación simplificada
-      console.log("Logging in with:", this.email, this.password);
-
-      // Simulación de un proceso de autenticación
       if (this.email === "test@example.com" && this.password === "password") {
-        // Si la autenticación es exitosa, redirige a la vista de Home
         this.$router.push("/home");
       } else {
         alert("Credenciales incorrectas. Por favor, inténtalo de nuevo.");
@@ -46,19 +41,20 @@ export default {
 </script>
 
 <style scoped>
+/* Estilo para el fondo degradado más visible */
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f0f0f0;
+  background: linear-gradient(135deg, #4a90e2, #b0c4de); /* Degradado de azul medio a azul claro */
 }
 
 .login-card {
   background: white;
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   width: 100%;
   max-width: 400px;
   text-align: center;
@@ -79,7 +75,7 @@ input {
 button {
   width: 100%;
   padding: 0.5rem;
-  background-color: #4CAF50;
+  background-color: #3a6ea5; /* Azul más profesional */
   color: white;
   border: none;
   border-radius: 5px;
@@ -88,14 +84,14 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #325d87;
 }
 
 .register-link {
   display: block;
   text-align: center;
   margin-top: 1rem;
-  color: #4CAF50;
+  color: #3a6ea5;
   text-decoration: none;
 }
 
