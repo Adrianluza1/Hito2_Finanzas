@@ -5,6 +5,7 @@ import Register from '../views/Register.vue'; // RUTA RELATIVA
 import Home from '../views/Home.vue'; // RUTA RELATIVA
 import Tasas from '../views/Tasas.vue';
 import Consolidacion from '../views/Consolidacion.vue';
+import Imprimir from '../views/Impresion.vue';
 
 
 const routes = [
@@ -13,6 +14,7 @@ const routes = [
     { path: '/home', name: 'Home', component: Home },
     { path: '/tasas', name: 'Tasas', component: Tasas },
     { path: '/consolidacion', name: 'Consolidacion', component: Consolidacion },
+    { path: '/imprimir', name: 'Imprimir', component: Imprimir },
 ];
 
 const router = createRouter({
