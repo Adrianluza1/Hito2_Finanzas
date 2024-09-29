@@ -6,35 +6,45 @@
       <form @submit.prevent="handleLogin">
         <div class="form-group">
           <label for="email">Email</label>
-          <input v-model="email" type="email" id="email" required />
+          <input v-model="correo" type="email" id="email" required />
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input v-model="password" type="password" id="password" required />
+          <input v-model="contrasena" type="password" id="password" required />
         </div>
         <button type="submit">Login</button>
         <router-link to="/register" class="register-link">Crear Cuenta</router-link>
+        <span v-if="error" class="error-message">{{ error }}</span>
       </form>
     </div>
   </div>
 </template>
 
 <script>
+import ApiService from '@/services/ApiService';
+
 export default {
   name: "LoginView",
   data() {
     return {
-      email: "",
-      password: "",
+      correo: "",
+      contrasena: "",
+      error: ""
     };
   },
   methods: {
     handleLogin() {
-      if (this.email === "test@example.com" && this.password === "password") {
-        this.$router.push("/home");
-      } else {
-        alert("Credenciales incorrectas. Por favor, inténtalo de nuevo.");
-      }
+      ApiService.login(this.correo, this.contrasena)
+          .then(response => {
+            this.$router.push("/home");
+          })
+          .catch(error => {
+            if (error.response && error.response.status === 401) {
+              this.error = "Credenciales incorrectas. Por favor, inténtalo de nuevo.";
+            } else {
+              this.error = "Hubo un problema con la solicitud. Por favor, inténtalo de nuevo más tarde.";
+            }
+          });
     },
   },
 };
@@ -75,7 +85,7 @@ input {
 button {
   width: 100%;
   padding: 0.5rem;
-  background-color: #3a6ea5; /* Azul más profesional */
+  background-color: #3a6ea5;
   color: white;
   border: none;
   border-radius: 5px;

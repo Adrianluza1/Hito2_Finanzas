@@ -81,7 +81,7 @@ input {
 button {
   width: 100%;
   padding: 0.5rem;
-  background-color: #3a6ea5; /* Azul más profesional */
+  background-color: #3a6ea5;
   color: white;
   border: none;
   border-radius: 5px;
