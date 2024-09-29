@@ -14,6 +14,18 @@ const ApiService = {
             console.error("Error during login request:", error.response ? error.response.data : error.message);
             throw error;
         }
+    },
+
+    async register(correo, nombre, rol, contrasena) {
+        try {
+            console.log("Sending registration request:", correo, nombre, rol, contrasena);
+            const response = await axios.post(`${API_URL}/register`, { correo, nombre, rol, contrasena });
+            console.log("Registration response received:", response.data);
+            return response.data;
+        } catch (error) {
+            console.error("Error during registration request:", error.response ? error.response.data : error.message);
+            throw error;
+        }
     }
 };
 
