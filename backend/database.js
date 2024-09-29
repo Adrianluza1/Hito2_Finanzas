@@ -5,10 +5,10 @@ const mysql = require('mysql2');
 
 // Conexion con BD MySQL
 const db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
+    host: process.env.DB_HOST || 'localhost',
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || 'password123',
+    database: process.env.DB_NAME || 'SistemaFinancieroDB',
     port: process.env.DB_PORT || 3306,
     // Traten de no cambiar el purto
     // Sino tendremos conflicto a la hora de hacer merge
