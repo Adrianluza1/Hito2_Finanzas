@@ -1,32 +1,37 @@
 <template>
-  <div class="register-card">
+  <div class="login-card">
     <h2>Crear Cuenta</h2>
-    <div class="form-group">
-      <label>Email</label>
-      <input type="email" v-model="correo" required />
-    </div>
-    <div class="form-group">
-      <label>Nombre de Usuario</label>
-      <input type="text" v-model="nombre" required />
-    </div>
-    <div class="form-group">
-      <label>Rol</label>
-      <select v-model="rol" required>
-        <option value="Usuario">Usuario</option>
-        <option value="Administrador">Administrador</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label>Password</label>
-      <input type="password" v-model="contrasena" required />
-    </div>
-    <div class="form-group">
-      <label>Confirmar Password</label>
-      <input type="password" v-model="confirmarContrasena" required />
-    </div>
-    <button @click="register">Crear Cuenta</button>
-    <p class="login-link" @click="goToLogin">Ya tengo una cuenta</p>
-    <p v-if="error" class="error-message">{{ error }}</p>
+    <form @submit.prevent="register">
+      <div class="form-group">
+        <label>Nombre:</label>
+        <input type="text" v-model="nombre" required />
+      </div>
+      <div class="form-group">
+        <label>Apellido:</label>
+        <input type="text" v-model="apellido" required />
+      </div>
+      <div class="form-group">
+        <label>Rol:</label>
+        <select v-model="rol" required>
+          <option value="user">Usuario</option>
+          <option value="admin">Administrador</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" v-model="email" required />
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <input type="password" v-model="password" required />
+      </div>
+      <div class="form-group">
+        <label>Confirmar Password:</label>
+        <input type="password" v-model="confirmPassword" required />
+      </div>
+      <button type="submit">Crear Cuenta</button>
+    </form>
+    <router-link to="/" class="register-link">Ya tengo una cuenta</router-link>
   </div>
 </template>
 
@@ -36,39 +41,35 @@ import ApiService from '@/services/ApiService';
 export default {
   data() {
     return {
-      correo: '',
       nombre: '',
-      rol: 'Usuario',
-      contrasena: '',
-      confirmarContrasena: '',
-      error: '',
+      apellido: '',
+      rol: 'user',
+      email: '',
+      password: '',
+      confirmPassword: ''
     };
   },
   methods: {
     async register() {
-      if (this.contrasena !== this.confirmarContrasena) {
-        this.error = 'Las contraseñas no coinciden';
+      if (this.password !== this.confirmPassword) {
+        alert("Las contraseñas no coinciden.");
         return;
       }
-
       try {
-        await ApiService.register(this.correo, this.nombre, this.rol, this.contrasena);
-        alert('Registro exitoso. Ahora inicia sesión con tus credenciales.');
-        this.$router.push('/login'); // Redirige al inicio de sesión
+        await ApiService.register(this.email, this.nombre, this.rol, this.password);
+        alert('Registro exitoso. Ahora puedes iniciar sesión.');
+        this.$router.push({ name: 'Login' });
       } catch (error) {
-        this.error = error.response?.data?.message || "Error de conexión";
+        console.error('Error durante el registro:', error);
+        alert('Error al registrar. Inténtalo de nuevo.');
       }
-    },
-    goToLogin() {
-      this.$router.push('/login');
     }
   }
 };
 </script>
 
 <style scoped>
-/* Estilos personalizados de la página de registro */
-.register-card {
+.login-card {
   background: white;
   padding: 2rem;
   border-radius: 10px;
@@ -105,7 +106,7 @@ button:hover {
   background-color: #325d87;
 }
 
-.login-link {
+.register-link {
   display: block;
   text-align: center;
   margin-top: 1rem;
@@ -113,12 +114,7 @@ button:hover {
   text-decoration: none;
 }
 
-.login-link:hover {
+.register-link:hover {
   text-decoration: underline;
-}
-
-.error-message {
-  color: red;
-  text-align: center;
 }
 </style>
