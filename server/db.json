@@ -1,0 +1,88 @@
+{
+  "usuarios": [
+    {
+      "idUsuario": "1",
+      "nombre": "Juan",
+      "apellido": "Perez",
+      "email": "juan.perez@example.com",
+      "password": "password123",  // Contraseña encriptada
+      "rol": "admin"
+    },
+    {
+      "idUsuario": "2",
+      "nombre": "Maria",
+      "apellido": "Gomez",
+      "email": "maria.gomez@example.com",
+      "password": "password123",  // Contraseña encriptada
+      "rol": "user"
+    }
+  ],
+  "carteras": [
+    {
+      "idCartera": "101",
+      "idUsuario": "1",
+      "nombre": "Cartera de Juan - Facturas en Soles"
+    },
+    {
+      "idCartera": "102",
+      "idUsuario": "2",
+      "nombre": "Cartera de Maria - Letras en Dólares"
+    }
+  ],
+  "facturas": [
+    {
+      "idFactura": "1001",
+      "idCartera": "101",
+      "monto": 1500.00,
+      "fechaEmision": "2024-01-01",
+      "fechaVencimiento": "2024-04-01",
+      "tasaNominal": 5.0,
+      "tasaEfectiva": 5.12
+    },
+    {
+      "idFactura": "1002",
+      "idCartera": "102",
+      "monto": 2000.00,
+      "fechaEmision": "2024-02-01",
+      "fechaVencimiento": "2024-05-01",
+      "tasaNominal": 4.5,
+      "tasaEfectiva": 4.68
+    }
+  ],
+  "letras": [
+    {
+      "idLetra": "2001",
+      "idCartera": "102",
+      "monto": 3000.00,
+      "fechaEmision": "2024-01-15",
+      "fechaVencimiento": "2024-06-15",
+      "tasaNominal": 6.0,
+      "tasaEfectiva": 6.18
+    },
+    {
+      "idLetra": "2002",
+      "idCartera": "101",
+      "monto": 1000.00,
+      "fechaEmision": "2024-03-01",
+      "fechaVencimiento": "2024-08-01",
+      "tasaNominal": 5.5,
+      "tasaEfectiva": 5.70
+    }
+  ],
+  "reportes": [
+    {
+      "idReporte": "R001",
+      "idCartera": "101",
+      "fechaReporte": "2024-04-01",
+      "tcea": 5.20,
+      "montoTotal": 2500.00
+    },
+    {
+      "idReporte": "R002",
+      "idCartera": "102",
+      "fechaReporte": "2024-05-01",
+      "tcea": 4.65,
+      "montoTotal": 3000.00
+    }
+  ]
+}
