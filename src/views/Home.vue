@@ -1,4 +1,3 @@
-<!-- src/views/Home.vue -->
 <template>
   <div class="home-container">
     <header class="home-header">
@@ -43,17 +42,16 @@ export default {
 </script>
 
 <style scoped>
-/* Fondo claro pero con un toque de profesionalismo */
 .home-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: linear-gradient(135deg, #b0c4de, #e0eafc); /* Degradado de azul claro a gris muy claro */
+  background: linear-gradient(90deg, #2193b0 0%, #67d0e8 100%);
 }
 
 .home-header {
-  background-color: #5d8aa8; /* Azul acero más claro */
-  color: #ffffff; /* Texto blanco */
+  background-color: #2b9bb8; /* Color intermedio de la paleta */
+  color: #ffffff;
   padding: 20px;
   text-align: center;
   position: relative;
@@ -68,7 +66,7 @@ export default {
 }
 
 .navigation-menu a {
-  color: #ffffff; /* Blanco para buen contraste */
+  color: #ffffff;
   text-decoration: none;
   font-weight: bold;
   padding: 5px 10px;
@@ -77,8 +75,8 @@ export default {
 }
 
 .navigation-menu a:hover {
-  background-color: #d4e4f7; /* Azul muy claro en hover */
-  color: #5d8aa8; /* Azul acero en hover */
+  background-color: #49b6d0; /* Azul claro en hover */
+  color: #2193b0; /* Azul fuerte para contraste */
 }
 
 .logout-button {
@@ -86,7 +84,7 @@ export default {
   right: 20px;
   top: 20px;
   padding: 5px 10px;
-  background-color: #d9534f; /* Rojo más claro y profesional */
+  background-color: #2b9bb8; /* Azul claro de la paleta */
   border: none;
   border-radius: 5px;
   color: white;
@@ -95,7 +93,7 @@ export default {
 }
 
 .logout-button:hover {
-  background-color: #c9302c;
+  background-color: #cb2d3e; /* Azul un poco más oscuro */
 }
 
 .home-content {
@@ -105,25 +103,25 @@ export default {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  color: #34495e; /* Texto en azul grisáceo */
+  color: #ffffff; /* Texto en blanco para mejor visibilidad */
   text-align: center;
 }
 
 .home-content h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #34495e;
+  color: #ffffff; /* Título en blanco */
 }
 
 .home-content p {
   max-width: 700px;
   line-height: 1.6;
-  color: #4a4a4a; /* Gris oscuro para mayor legibilidad */
+  color: #ffffff; /* Texto en blanco */
 }
 
 .home-footer {
-  background-color: #5d8aa8; /* Azul acero claro */
-  color: #ffffff; /* Blanco para contraste */
+  background-color: #2b9bb8; /* Color del encabezado para coherencia */
+  color: #ffffff;
   text-align: center;
   padding: 10px;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);

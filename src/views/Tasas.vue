@@ -1,7 +1,6 @@
-<!-- src/views/Tasas.vue -->
 <template>
-  <div class="tasas-container">
-    <header class="tasas-header">
+  <div class="home-container">
+    <header class="home-header">
       <h1>Bienvenido al Sistema de Gestión</h1>
       <nav class="navigation-menu">
         <router-link to="/home">Inicio</router-link>
@@ -10,7 +9,7 @@
       </nav>
     </header>
 
-    <main class="tasas-content">
+    <main class="home-content">
       <div class="card">
         <h2>Cartera en Soles</h2>
         <form @submit.prevent="saveSoles">
@@ -42,7 +41,7 @@
       </div>
     </main>
 
-    <footer class="tasas-footer">
+    <footer class="home-footer">
       © 2024 SI642-2402-SI82 . Todos los derechos reservados.
     </footer>
   </div>
@@ -61,11 +60,9 @@ export default {
   },
   methods: {
     saveSoles() {
-      console.log("Guardando configuración de soles:", this.tasaSoles, this.fechaSoles);
       alert("Configuración de Soles guardada con éxito.");
     },
     saveDolares() {
-      console.log("Guardando configuración de dólares:", this.tasaDolares, this.fechaDolares);
       alert("Configuración de Dólares guardada con éxito.");
     },
   },
@@ -73,19 +70,20 @@ export default {
 </script>
 
 <style scoped>
-/* Fondo claro pero respetando la paleta */
-.tasas-container {
+.home-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: linear-gradient(135deg, #b0c4de, #e0eafc); /* Degradado de azul claro a gris muy claro */
+  background: linear-gradient(90deg, #2193b0 0%, #67d0e8 100%);
 }
 
-.tasas-header {
-  background-color: #5d8aa8; /* Azul acero más claro */
-  color: #ffffff; /* Texto blanco */
+.home-header {
+  background-color: #2b9bb8;
+  color: #ffffff;
   padding: 20px;
   text-align: center;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navigation-menu {
@@ -105,17 +103,18 @@ export default {
 }
 
 .navigation-menu a:hover {
-  background-color: #d4e4f7;
-  color: #5d8aa8;
+  background-color: #49b6d0;
+  color: #2193b0;
 }
 
-.tasas-content {
+.home-content {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  color: #34495e;
+  color: #000000; /* Texto en negro para mayor visibilidad */
+  text-align: center;
 }
 
 .card {
@@ -131,7 +130,7 @@ export default {
 
 h2 {
   text-align: center;
-  color: #5d8aa8;
+  color: #2b9bb8;
 }
 
 .form-group {
@@ -143,12 +142,14 @@ input {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 1rem;
+  color: #000000; /* Texto en negro */
 }
 
 button {
   width: 100%;
   padding: 10px;
-  background-color: #5d8aa8; /* Azul acero */
+  background-color: #2b9bb8;
   color: white;
   border: none;
   border-radius: 5px;
@@ -158,11 +159,11 @@ button {
 }
 
 button:hover {
-  background-color: #4a6a85;
+  background-color: #49b6d0;
 }
 
-.tasas-footer {
-  background-color: #5d8aa8;
+.home-footer {
+  background-color: #2b9bb8;
   color: #ffffff;
   text-align: center;
   padding: 10px;

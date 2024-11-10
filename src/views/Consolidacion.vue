@@ -1,7 +1,6 @@
-<!-- src/views/Consolidacion.vue -->
 <template>
-  <div class="consolidacion-container">
-    <header class="consolidacion-header">
+  <div class="home-container">
+    <header class="home-header">
       <h1>Bienvenido al Sistema de Gestión</h1>
       <nav class="navigation-menu">
         <router-link to="/home">Inicio</router-link>
@@ -10,7 +9,7 @@
       </nav>
     </header>
 
-    <main class="consolidacion-content">
+    <main class="home-content">
       <div class="card">
         <h2>Consolidar Reporte de Letras/Facturas</h2>
         <button @click="generarConsolidado">Generar Consolidado</button>
@@ -22,7 +21,7 @@
       </div>
     </main>
 
-    <footer class="consolidacion-footer">
+    <footer class="home-footer">
       © 2024 SI642-2402-SI82 . Todos los derechos reservados.
     </footer>
   </div>
@@ -38,7 +37,6 @@ export default {
   },
   methods: {
     generarConsolidado() {
-      // Simulación del resultado del consolidado
       this.resultado = "Reporte consolidado de letras/facturas:\n- Documento 1: $1,200\n- Documento 2: $3,500\n- Documento 3: $2,750\nTotal: $7,450";
       alert("Consolidado generado con éxito.");
     },
@@ -47,19 +45,20 @@ export default {
 </script>
 
 <style scoped>
-/* Fondo claro siguiendo la paleta */
-.consolidacion-container {
+.home-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: linear-gradient(135deg, #b0c4de, #e0eafc); /* Degradado de azul claro a gris muy claro */
+  background: linear-gradient(90deg, #2193b0 0%, #67d0e8 100%);
 }
 
-.consolidacion-header {
-  background-color: #5d8aa8; /* Azul acero más claro */
-  color: #ffffff; /* Texto blanco */
+.home-header {
+  background-color: #2b9bb8;
+  color: #ffffff;
   padding: 20px;
   text-align: center;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navigation-menu {
@@ -79,20 +78,51 @@ export default {
 }
 
 .navigation-menu a:hover {
-  background-color: #d4e4f7;
-  color: #5d8aa8;
+  background-color: #49b6d0;
+  color: #2193b0;
 }
 
-.consolidacion-content {
+.logout-button {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  padding: 5px 10px;
+  background-color: #2b9bb8;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #cb2d3e;
+}
+
+.home-content {
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding: 20px;
-  color: #34495e;
+  color: #000000; /* Texto en negro para mejor visibilidad */
+  text-align: center;
 }
 
-.card {
+.home-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #000000; /* Título en negro */
+}
+
+.home-content p {
+  max-width: 700px;
+  line-height: 1.6;
+  color: #000000; /* Texto en negro */
+}
+
+.card, .result-card {
   background: white;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -103,24 +133,13 @@ export default {
   text-align: center;
 }
 
-.result-card {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin: 20px;
-  width: 80%;
-  max-width: 500px;
-  text-align: left;
-}
-
 h2, h3 {
-  color: #5d8aa8;
+  color: #2b9bb8;
 }
 
 button {
   padding: 10px 20px;
-  background-color: #5d8aa8; /* Azul acero */
+  background-color: #2b9bb8;
   color: white;
   border: none;
   border-radius: 5px;
@@ -129,22 +148,24 @@ button {
 }
 
 button:hover {
-  background-color: #4a6a85;
+  background-color: #49b6d0;
 }
 
-pre {
-  background-color: #f8f9fa;
+input[type="date"] {
+  width: 100%;
   padding: 10px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
+  font-size: 1rem;
+  color: #000000; /* Texto del calendario en negro */
 }
 
-.consolidacion-footer {
-  background-color: #5d8aa8;
+.home-footer {
+  background-color: #2b9bb8;
   color: #ffffff;
   text-align: center;
   padding: 10px;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 </style>
+
