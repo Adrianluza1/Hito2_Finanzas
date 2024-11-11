@@ -1,11 +1,12 @@
 <template>
   <div class="home-container">
     <header class="home-header">
-      <h1>Bienvenido al Sistema de Gestión</h1>
+      <h1>Consolidar Reporte de Letras/Facturas</h1>
       <nav class="navigation-menu">
         <router-link to="/home">Inicio</router-link>
-        <router-link to="/consolidacion">Consolidación de Reporte</router-link>
         <router-link to="/tasas">Configuración de Tasas</router-link>
+        <router-link to="/consolidacion">Consolidacion de Reporte</router-link>
+        <router-link to="/imprimir">Impresión de Reporte</router-link>
       </nav>
     </header>
 
@@ -82,23 +83,6 @@ export default {
   color: #2193b0;
 }
 
-.logout-button {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  padding: 5px 10px;
-  background-color: #2b9bb8;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.logout-button:hover {
-  background-color: #cb2d3e;
-}
-
 .home-content {
   flex: 1;
   display: flex;
@@ -106,20 +90,14 @@ export default {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  color: #000000; /* Texto en negro para mejor visibilidad */
+  color: #000000;
   text-align: center;
 }
 
 .home-content h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #000000; /* Título en negro */
-}
-
-.home-content p {
-  max-width: 700px;
-  line-height: 1.6;
-  color: #000000; /* Texto en negro */
+  color: #2b9bb8;
 }
 
 .card, .result-card {
@@ -151,15 +129,6 @@ button:hover {
   background-color: #49b6d0;
 }
 
-input[type="date"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-  color: #000000; /* Texto del calendario en negro */
-}
-
 .home-footer {
   background-color: #2b9bb8;
   color: #ffffff;
@@ -168,4 +137,3 @@ input[type="date"] {
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 </style>
-

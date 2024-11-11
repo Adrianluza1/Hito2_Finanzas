@@ -4,13 +4,14 @@
       <h1>Bienvenido al Sistema de Gestión</h1>
       <nav class="navigation-menu">
         <router-link to="/home">Inicio</router-link>
-        <router-link to="/consolidacion">Consolidación de Reporte</router-link>
+        <router-link to="/tasas">Configuración de Tasas</router-link>
+        <router-link to="/consolidacion">Consolidacion de Reporte</router-link>
         <router-link to="/imprimir">Impresión de Reporte</router-link>
       </nav>
     </header>
 
     <main class="home-content">
-      <div class="card-container">
+      <div class="content-wrapper">
         <SolesForm />
         <DolaresForm />
       </div>
@@ -23,11 +24,10 @@
 </template>
 
 <script>
-import SolesForm from "../components/tasas/SolesForm.vue";
-import DolaresForm from "../components/tasas/DolaresForm.vue";
+import SolesForm from '../components/tasas/SolesForm.vue';
+import DolaresForm from '../components/tasas/DolaresForm.vue';
 
 export default {
-  name: "TasasView",
   components: {
     SolesForm,
     DolaresForm,
@@ -76,14 +76,65 @@ export default {
 .home-content {
   flex: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: 20px;
   color: #000000;
+  text-align: center;
 }
 
-.card-container {
+.content-wrapper {
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #2b9bb8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #49b6d0;
+}
+
+input[type="date"],
+input[type="number"],
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+label {
+  font-weight: bold;
+  color: #2b9bb8;
+  display: block;
+  margin-top: 10px;
+  text-align: left;
 }
 
 .home-footer {

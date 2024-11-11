@@ -1,98 +1,36 @@
 {
   "usuarios": [
     {
-      "idUsuario": "1",
+      "id": 1,
+      "email": "user1@example.com",
+      "password": "contra",
       "nombre": "Juan",
-      "apellido": "Perez",
-      "email": "juan.perez@example.com",
-      "password": "password123",
-      "rol": "admin",
-      "id": "bf61"
-    },
-    {
-      "idUsuario": "2",
-      "nombre": "Maria",
-      "apellido": "Gomez",
-      "email": "maria.gomez@example.com",
-      "password": "password123",
+      "apellidos": "Perez",
       "rol": "user",
-      "id": "6f61"
-    }
-  ],
-  "carteras": [
-    {
-      "idCartera": "101",
-      "idUsuario": "1",
-      "nombre": "Cartera de Juan - Facturas en Soles",
-      "id": "ba83"
+      "dni": "12345678",
+      "direccion": "Calle Falsa 123",
+      "telefono": "123456789",
+      "tasas": {
+        "soles": { "monto": 0, "tasa_descuento": 0, "fecha": "" },
+        "dolares": { "monto": 0, "tasa_descuento": 0, "fecha": "" }
+      },
+      "reportes": []
     },
     {
-      "idCartera": "102",
-      "idUsuario": "2",
-      "nombre": "Cartera de Maria - Letras en Dólares",
-      "id": "e3d7"
-    }
-  ],
-  "facturas": [
-    {
-      "idFactura": "1001",
-      "idCartera": "101",
-      "monto": 1500,
-      "fechaEmision": "2024-01-01",
-      "fechaVencimiento": "2024-04-01",
-      "tasaNominal": 5,
-      "tasaEfectiva": 5.12,
-      "id": "be61"
-    },
-    {
-      "idFactura": "1002",
-      "idCartera": "102",
-      "monto": 2000,
-      "fechaEmision": "2024-02-01",
-      "fechaVencimiento": "2024-05-01",
-      "tasaNominal": 4.5,
-      "tasaEfectiva": 4.68,
-      "id": "445c"
-    }
-  ],
-  "letras": [
-    {
-      "idLetra": "2001",
-      "idCartera": "102",
-      "monto": 3000,
-      "fechaEmision": "2024-01-15",
-      "fechaVencimiento": "2024-06-15",
-      "tasaNominal": 6,
-      "tasaEfectiva": 6.18,
-      "id": "5b02"
-    },
-    {
-      "idLetra": "2002",
-      "idCartera": "101",
-      "monto": 1000,
-      "fechaEmision": "2024-03-01",
-      "fechaVencimiento": "2024-08-01",
-      "tasaNominal": 5.5,
-      "tasaEfectiva": 5.7,
-      "id": "5fe7"
-    }
-  ],
-  "reportes": [
-    {
-      "idReporte": "R001",
-      "idCartera": "101",
-      "fechaReporte": "2024-04-01",
-      "tcea": 5.2,
-      "montoTotal": 2500,
-      "id": "cef5"
-    },
-    {
-      "idReporte": "R002",
-      "idCartera": "102",
-      "fechaReporte": "2024-05-01",
-      "tcea": 4.65,
-      "montoTotal": 3000,
-      "id": "b87f"
+      "id": 2,
+      "email": "admin@example.com",
+      "password": "adminpass",
+      "nombre": "Admin",
+      "apellidos": "General",
+      "rol": "admin",
+      "dni": "87654321",
+      "direccion": "Avenida Siempre Viva",
+      "telefono": "987654321",
+      "tasas": {
+        "soles": { "monto": 0, "tasa_descuento": 0, "fecha": "" },
+        "dolares": { "monto": 0, "tasa_descuento": 0, "fecha": "" }
+      },
+      "reportes": []
     }
   ]
 }

@@ -3,8 +3,9 @@
     <header class="home-header">
       <h1>Bienvenido al Sistema de Gestión</h1>
       <nav class="navigation-menu">
+        <router-link to="/home">Inicio</router-link>
         <router-link to="/tasas">Configuración de Tasas</router-link>
-        <router-link to="/consolidacion">Consolidación de Reporte</router-link>
+        <router-link to="/consolidacion">Consolidacion de Reporte</router-link>
         <router-link to="/imprimir">Impresión de Reporte</router-link>
       </nav>
       <button class="logout-button" @click="handleLogout">Cerrar Sesión</button>

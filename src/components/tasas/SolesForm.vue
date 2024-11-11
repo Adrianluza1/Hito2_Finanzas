@@ -1,48 +1,35 @@
 <template>
   <div class="card">
-    <h2>Cartera en Soles</h2>
-    <form @submit.prevent="saveSoles">
-      <div class="form-group">
-        <label>Tasa de Descuento (%)</label>
-        <input v-model="tasaSoles" type="number" required />
-      </div>
-      <div class="form-group">
-        <label>Fecha de Aplicación</label>
-        <input v-model="fechaSoles" type="date" required />
-      </div>
-      <div class="form-group">
-        <label>Días de Descuento</label>
-        <input v-model="diasDescuentoSoles" type="number" required />
-      </div>
+    <h3>Cartera en Soles</h3>
+    <form @submit.prevent="guardarTasaSoles">
+      <label for="descuentoSoles">Tasa de Descuento (%)</label>
+      <input type="number" id="descuentoSoles" v-model="tasaSoles.descuento" required />
+
+      <label for="fechaAplicacionSoles">Fecha de Aplicación</label>
+      <input type="date" id="fechaAplicacionSoles" v-model="tasaSoles.fechaAplicacion" required />
+
+      <label for="diasDescuentoSoles">Días de Descuento</label>
+      <input type="number" id="diasDescuentoSoles" v-model="tasaSoles.diasDescuento" required />
+
       <button type="submit">Guardar Configuración Soles</button>
     </form>
   </div>
 </template>
 
 <script>
-import TasaService from "@/services/tasas/TasaService";
-
 export default {
-  name: "SolesForm",
   data() {
     return {
-      tasaSoles: '',
-      fechaSoles: '',
-      diasDescuentoSoles: '',
+      tasaSoles: {
+        descuento: 0,
+        fechaAplicacion: '',
+        diasDescuento: 0,
+      },
     };
   },
-  async mounted() {
-    const idUsuario = "1";
-    const carteraSoles = await TasaService.getTasaByCartera(idUsuario, "soles");
-    this.tasaSoles = carteraSoles.tasa;
-    this.fechaSoles = carteraSoles.fechaAplicacion;
-    this.diasDescuentoSoles = carteraSoles.diasDescuento;
-  },
   methods: {
-    async saveSoles() {
-      const idUsuario = "1";
-      await TasaService.saveTasa(idUsuario, "soles", this.tasaSoles, this.fechaSoles, this.diasDescuentoSoles);
-      alert("Configuración de Soles guardada con éxito.");
+    guardarTasaSoles() {
+      // Lógica para guardar la tasa en soles
     },
   },
 };
@@ -54,33 +41,41 @@ export default {
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  max-width: 400px;
+  text-align: center;
+  width: 100%;
+}
+
+label {
+  font-weight: bold;
+  color: #2b9bb8;
+  display: block;
+  margin-top: 10px;
   text-align: left;
 }
 
-.form-group {
-  margin-bottom: 15px;
-}
-
-input {
+input[type="date"],
+input[type="number"],
+input[type="text"] {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1rem;
-  color: #000000;
+  margin-top: 5px;
+  box-sizing: border-box;
 }
 
 button {
-  width: 100%;
-  padding: 10px;
+  padding: 10px 20px;
   background-color: #2b9bb8;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px;
   transition: background-color 0.3s;
+  width: 100%;
+  font-size: 1rem;
+  margin-top: 15px;
 }
 
 button:hover {

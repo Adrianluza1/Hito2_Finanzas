@@ -1,48 +1,35 @@
 <template>
   <div class="card">
-    <h2>Cartera en Dólares</h2>
-    <form @submit.prevent="saveDolares">
-      <div class="form-group">
-        <label>Tasa de Descuento (%)</label>
-        <input v-model="tasaDolares" type="number" required />
-      </div>
-      <div class="form-group">
-        <label>Fecha de Aplicación</label>
-        <input v-model="fechaDolares" type="date" required />
-      </div>
-      <div class="form-group">
-        <label>Días de Descuento</label>
-        <input v-model="diasDescuentoDolares" type="number" required />
-      </div>
+    <h3>Cartera en Dólares</h3>
+    <form @submit.prevent="guardarTasaDolares">
+      <label for="descuentoDolares">Tasa de Descuento (%)</label>
+      <input type="number" id="descuentoDolares" v-model="tasaDolares.descuento" required />
+
+      <label for="fechaAplicacionDolares">Fecha de Aplicación</label>
+      <input type="date" id="fechaAplicacionDolares" v-model="tasaDolares.fechaAplicacion" required />
+
+      <label for="diasDescuentoDolares">Días de Descuento</label>
+      <input type="number" id="diasDescuentoDolares" v-model="tasaDolares.diasDescuento" required />
+
       <button type="submit">Guardar Configuración Dólares</button>
     </form>
   </div>
 </template>
 
 <script>
-import TasaService from "@/services/tasas/TasaService";
-
 export default {
-  name: "DolaresForm",
   data() {
     return {
-      tasaDolares: '',
-      fechaDolares: '',
-      diasDescuentoDolares: '',
+      tasaDolares: {
+        descuento: 0,
+        fechaAplicacion: '',
+        diasDescuento: 0,
+      },
     };
   },
-  async mounted() {
-    const idUsuario = "1";
-    const carteraDolares = await TasaService.getTasaByCartera(idUsuario, "dolares");
-    this.tasaDolares = carteraDolares.tasa;
-    this.fechaDolares = carteraDolares.fechaAplicacion;
-    this.diasDescuentoDolares = carteraDolares.diasDescuento;
-  },
   methods: {
-    async saveDolares() {
-      const idUsuario = "1";
-      await TasaService.saveTasa(idUsuario, "dolares", this.tasaDolares, this.fechaDolares, this.diasDescuentoDolares);
-      alert("Configuración de Dólares guardada con éxito.");
+    guardarTasaDolares() {
+      // Lógica para guardar la tasa en dólares
     },
   },
 };
@@ -54,33 +41,41 @@ export default {
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  max-width: 400px;
+  text-align: center;
+  width: 100%;
+}
+
+label {
+  font-weight: bold;
+  color: #2b9bb8;
+  display: block;
+  margin-top: 10px;
   text-align: left;
 }
 
-.form-group {
-  margin-bottom: 15px;
-}
-
-input {
+input[type="date"],
+input[type="number"],
+input[type="text"] {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1rem;
-  color: #000000;
+  margin-top: 5px;
+  box-sizing: border-box;
 }
 
 button {
-  width: 100%;
-  padding: 10px;
+  padding: 10px 20px;
   background-color: #2b9bb8;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px;
   transition: background-color 0.3s;
+  width: 100%;
+  font-size: 1rem;
+  margin-top: 15px;
 }
 
 button:hover {
