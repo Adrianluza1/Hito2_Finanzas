@@ -1,10 +1,16 @@
 import axios from 'axios';
 
+// Definición de las URL de la API
 const API_URL = "http://localhost:3000/user";
 const CARTERA_URL = "http://localhost:3000/cartera";
 
 export default {
-    // Método para verificar si el usuario ya existe
+    /**
+     * Verifica si un usuario con el mismo nombre de usuario o correo ya existe.
+     * @param {string} usuario_acceso - Nombre de usuario que se desea verificar.
+     * @param {string} correo - Correo electrónico que se desea verificar.
+     * @returns {Promise<boolean>} - Retorna `true` si el usuario o correo ya existe, de lo contrario, `false`.
+     */
     async verificarUsuarioExistente(usuario_acceso, correo) {
         try {
             const response = await axios.get(API_URL);
@@ -18,7 +24,11 @@ export default {
         }
     },
 
-    // Método para el registro de un nuevo usuario
+    /**
+     * Registra un nuevo usuario en el sistema.
+     * @param {Object} datos - Objeto con los datos del usuario a registrar.
+     * @returns {Promise<Object>} - Retorna un objeto indicando si el registro fue exitoso y el usuario registrado.
+     */
     async registrarUsuario(datos) {
         try {
             const usuarioExistente = await this.verificarUsuarioExistente(datos.usuario_acceso, datos.correo);
@@ -26,6 +36,7 @@ export default {
                 return { success: false, message: "El usuario o correo ya existe." };
             }
 
+            // Registro del usuario en la base de datos
             const response = await axios.post(API_URL, {
                 usuario_acceso: datos.usuario_acceso,
                 correo: datos.correo,
@@ -38,7 +49,7 @@ export default {
 
             const nuevoUsuario = response.data;
 
-            // Crear una entrada en cartera para el nuevo usuario
+            // Crear una entrada en 'cartera' para el nuevo usuario
             await axios.post(CARTERA_URL, {
                 user_id: nuevoUsuario.id,
                 cantidad_total_facturas: 0,
@@ -53,7 +64,12 @@ export default {
         }
     },
 
-    // Método para el inicio de sesión
+    /**
+     * Autentica al usuario en el sistema.
+     * @param {string} usuario_acceso - Nombre de usuario.
+     * @param {string} contrasena_acceso - Contraseña del usuario.
+     * @returns {Promise<Object>} - Retorna un objeto con el resultado del inicio de sesión y los datos del usuario si es exitoso.
+     */
     async login(usuario_acceso, contrasena_acceso) {
         try {
             const response = await axios.get(API_URL);
@@ -64,7 +80,7 @@ export default {
             );
 
             if (usuario) {
-                // Almacenar el usuario en localStorage después del inicio de sesión exitoso
+                // Almacena el usuario en localStorage después de iniciar sesión
                 localStorage.setItem("usuario", JSON.stringify(usuario));
                 return { success: true, usuario };
             } else {

@@ -2,13 +2,13 @@
   "user": [
     {
       "id": "1",
-      "usuario_acceso": "JoseLuza",
+      "usuario_acceso": "johndoe",
       "correo": "jdoe@example.com",
       "contrasena_acceso": "7cKwn5CxKLjpDXP",
       "dni_cliente": "12345678",
       "nombre_completo_cliente": "John Doe",
       "direccion_cliente": "123 Main St",
-      "telefono_cliente": "555-1234",
+      "telefono_cliente": "555-4875",
       "cartera_id": 1
     },
     {
@@ -94,7 +94,7 @@
           "id": 103,
           "fecha_emision": "2024-03-01",
           "fecha_vencimiento": "2024-08-01",
-          "capital": 1500,
+          "capital": 1000,
           "detalle_factura": "Factura de gas",
           "tasa_conversion_moneda": 1.08,
           "fecha_reporte": "2024-03-02",
