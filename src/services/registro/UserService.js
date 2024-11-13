@@ -1,15 +1,16 @@
-// src/registro/UserService.js
-export default class UserService {
-    constructor(db) {
-        this.db = db;
-    }
+import axios from 'axios';
 
-    /**
-     * Obtiene los datos de un usuario específico.
-     * @param {string} idUsuario - El identificador del usuario a obtener.
-     * @returns {Object} - Datos del usuario si existe en la base de datos.
-     */
-    obtenerDatosUsuario(idUsuario) {
-        return this.db.usuarios.find((usuario) => usuario.idUsuario === idUsuario);
+const API_URL = 'http://localhost:3000';
+
+export default class UserService {
+    static async obtenerDatosUsuario(usuarioId) {
+        try {
+            const response = await axios.get(`${API_URL}/user/${usuarioId}`);
+            console.log("Datos del usuario obtenidos:", response.data);
+            return response.data;
+        } catch (error) {
+            console.error("Error al obtener los datos del usuario:", error.message);
+            throw error;
+        }
     }
 }
