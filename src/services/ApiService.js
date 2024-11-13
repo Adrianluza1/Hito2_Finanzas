@@ -1,57 +1,71 @@
 import axios from 'axios';
 
-const API_URL = "http://localhost:3000/usuarios"; // URL base del endpoint para usuarios
+const API_URL = "http://localhost:3000/user";
+const CARTERA_URL = "http://localhost:3000/cartera";
 
 export default {
-    // Obtener todos los usuarios
-    obtenerUsuarios() {
-        return axios.get(API_URL);
+    // Método para verificar si el usuario ya existe
+    async verificarUsuarioExistente(usuario_acceso, correo) {
+        try {
+            const response = await axios.get(API_URL);
+            const usuarios = response.data;
+            return usuarios.some(
+                user => user.usuario_acceso === usuario_acceso || user.correo === correo
+            );
+        } catch (error) {
+            console.error("Error al verificar usuario:", error);
+            return false;
+        }
     },
 
-    // Obtener un usuario por su ID
-    obtenerUsuario(id) {
-        return axios.get(`${API_URL}/${id}`);
-    },
+    // Método para el registro de un nuevo usuario
+    async registrarUsuario(datos) {
+        try {
+            const usuarioExistente = await this.verificarUsuarioExistente(datos.usuario_acceso, datos.correo);
+            if (usuarioExistente) {
+                return { success: false, message: "El usuario o correo ya existe." };
+            }
 
-    // Actualizar la tasa de un usuario específico
-    actualizarTasaUsuario(id, tasas) {
-        return axios.patch(`${API_URL}/${id}`, { tasas });
-    },
+            const response = await axios.post(API_URL, {
+                usuario_acceso: datos.usuario_acceso,
+                correo: datos.correo,
+                contrasena_acceso: datos.contrasena_acceso,
+                dni_cliente: datos.dni_cliente,
+                nombre_completo_cliente: datos.nombre_completo_cliente,
+                direccion_cliente: datos.direccion_cliente,
+                telefono_cliente: datos.telefono_cliente
+            });
 
-    // Actualizar otros datos del usuario
-    actualizarUsuario(id, datos) {
-        return axios.put(`${API_URL}/${id}`, datos);
-    },
+            const nuevoUsuario = response.data;
 
-    // Crear un nuevo usuario
-    crearUsuario(datos) {
-        return axios.post(API_URL, datos);
-    },
+            // Crear una entrada en cartera para el nuevo usuario
+            await axios.post(CARTERA_URL, {
+                user_id: nuevoUsuario.id,
+                cantidad_total_facturas: 0,
+                facturas: [],
+                monto_total_facturas: 0.0
+            });
 
-    // Obtener reportes asociados a un usuario
-    obtenerReportesUsuario(id) {
-        return axios.get(`${API_URL}/${id}/reportes`);
-    },
-
-    // Agregar un reporte a un usuario
-    agregarReporteUsuario(id, reporte) {
-        return axios.patch(`${API_URL}/${id}`, {
-            reportes: axios.get(`${API_URL}/${id}`)
-                .then(response => [...response.data.reportes, reporte])
-        });
+            return { success: true, usuario: nuevoUsuario };
+        } catch (error) {
+            console.error("Error en el registro de usuario:", error);
+            return { success: false, message: "Error de servidor" };
+        }
     },
 
     // Método para el inicio de sesión
-    async login(email, password) {
+    async login(usuario_acceso, contrasena_acceso) {
         try {
             const response = await axios.get(API_URL);
             const usuarios = response.data;
 
             const usuario = usuarios.find(
-                user => user.email === email && user.password === password
+                user => user.usuario_acceso === usuario_acceso && user.contrasena_acceso === contrasena_acceso
             );
 
             if (usuario) {
+                // Almacenar el usuario en localStorage después del inicio de sesión exitoso
+                localStorage.setItem("usuario", JSON.stringify(usuario));
                 return { success: true, usuario };
             } else {
                 return { success: false, message: "Credenciales incorrectas" };
