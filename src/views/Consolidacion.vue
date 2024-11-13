@@ -16,11 +16,11 @@
           <UserForm />
         </div>
         <div class="card">
-          <ReportComponent />
+          <DatosForm @facturaSeleccionada="seleccionarFactura" />
         </div>
-      </div>
-      <div class="button-card">
-        <OptionReport />
+        <div class="card">
+          <ReportComponent :factura="facturaSeleccionada" />
+        </div>
       </div>
     </div>
   </div>
@@ -28,16 +28,27 @@
 
 <script>
 import UserForm from '../components/consolidacion/UserForm.vue';
-import OptionReport from '../components/consolidacion/OptionReport.vue';
+import DatosForm from '../components/consolidacion/DatosForm.vue';
 import ReportComponent from '../components/consolidacion/ReportComponent.vue';
 
 export default {
   components: {
     UserForm,
-    OptionReport,
+    DatosForm,
     ReportComponent
+  },
+  data() {
+    return {
+      facturaSeleccionada: null
+    };
+  },
+  methods: {
+    seleccionarFactura(factura) {
+      this.facturaSeleccionada = factura;
+      console.log("Factura seleccionada para el reporte:", this.facturaSeleccionada);
+    }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -84,21 +95,10 @@ export default {
 
 .row-container {
   display: flex;
-  gap: 30px; /* Espacio entre las cards */
+  gap: 30px;
   width: 100%;
   max-width: 1200px;
   justify-content: space-between;
-}
-
-.button-card {
-  margin-top: 20px;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  text-align: center;
-  width: 100%;
-  max-width: 400px;
 }
 
 .card {
