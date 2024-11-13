@@ -1,36 +1,43 @@
-// services/tasas/TasaService.js
 import axios from 'axios';
 
 const API_URL = 'http://localhost:3000';
 
 export default class TasaService {
+    // Obtener la cartera de un usuario específico
     static async getCarterasByUsuario(idUsuario) {
-        const response = await axios.get(`${API_URL}/carteras`, {
-            params: { idUsuario },
-        });
-        return response.data;
-    }
-
-    static async saveTasa(idUsuario, tipoCartera, tasa, fecha, diasDescuento) {
-        const response = await axios.get(`${API_URL}/carteras?idUsuario=${idUsuario}&tipo=${tipoCartera}`);
-        if (response.data.length > 0) {
-            const cartera = response.data[0];
-            cartera.tasa = tasa;
-            cartera.fechaAplicacion = fecha;
-            cartera.diasDescuento = diasDescuento;
-
-            return axios.put(`${API_URL}/carteras/${cartera.id}`, cartera);
-        } else {
-            return axios.post(`${API_URL}/carteras`, { idUsuario, tipo: tipoCartera, tasa, fechaAplicacion: fecha, diasDescuento });
+        try {
+            const response = await axios.get(`${API_URL}/cartera`, {
+                params: { user_id: idUsuario },
+            });
+            if (response.data.length > 0) {
+                console.log("Cartera obtenida:", response.data[0]);
+                return response.data[0];
+            } else {
+                console.warn("No se encontraron carteras para este usuario.");
+                return null;
+            }
+        } catch (error) {
+            console.error("Error al obtener la cartera del usuario:", error.message);
+            throw error;
         }
     }
 
-    static async getTasaByCartera(idUsuario, tipoCartera) {
-        const response = await axios.get(`${API_URL}/carteras`, {
-            params: { idUsuario, tipo: tipoCartera },
-        });
-        return response.data.length > 0
-            ? response.data[0]
-            : { tasa: '', fechaAplicacion: '', diasDescuento: '' };
+    // Actualizar la cartera completa, incluyendo las facturas modificadas
+    static async updateFactura(idCartera, factura) {
+        try {
+            // Ruta actualizada para asegurar que está apuntando al endpoint correcto
+            const url = `${API_URL}/cartera/${idCartera}`;
+            console.log(`Intentando actualizar la factura en URL: ${url}`);
+
+            const carteraResponse = await axios.get(url);
+            const cartera = carteraResponse.data;
+            const facturasActualizadas = cartera.facturas.map(f => f.id === factura.id ? factura : f);
+
+            const response = await axios.put(url, { ...cartera, facturas: facturasActualizadas });
+            console.log("Factura actualizada:", response.data);
+        } catch (error) {
+            console.error("Error al actualizar la factura:", error.message);
+            throw error;
+        }
     }
 }

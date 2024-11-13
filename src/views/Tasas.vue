@@ -5,15 +5,14 @@
       <nav class="navigation-menu">
         <router-link to="/home">Inicio</router-link>
         <router-link to="/tasas">Configuración de Tasas</router-link>
-        <router-link to="/consolidacion">Consolidacion de Reporte</router-link>
+        <router-link to="/consolidacion">Consolidación de Reporte</router-link>
         <router-link to="/imprimir">Impresión de Reporte</router-link>
       </nav>
     </header>
 
     <main class="home-content">
       <div class="content-wrapper">
-        <SolesForm />
-        <DolaresForm />
+        <TasasForm />
       </div>
     </main>
 
@@ -24,14 +23,12 @@
 </template>
 
 <script>
-import SolesForm from '../components/tasas/SolesForm.vue';
-import DolaresForm from '../components/tasas/DolaresForm.vue';
+import TasasForm from "../components/tasas/TasasForm.vue";
 
 export default {
   components: {
-    SolesForm,
-    DolaresForm,
-  },
+    TasasForm
+  }
 };
 </script>
 

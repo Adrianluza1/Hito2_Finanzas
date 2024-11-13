@@ -3,38 +3,44 @@
     <h2>Iniciar Sesión</h2>
     <form @submit.prevent="login">
       <div class="form-group">
-        <label>Email:</label>
-        <input type="email" v-model="email" required />
+        <label>Usuario:</label>
+        <input type="text" v-model="usuario_acceso" required />
       </div>
       <div class="form-group">
-        <label>Password:</label>
-        <input type="password" v-model="password" required />
+        <label>Contraseña:</label>
+        <input type="password" v-model="contrasena_acceso" required />
       </div>
-      <button type="submit">Iniciar Sesión</button>
+      <button type="submit">Ingresar</button>
     </form>
-    <router-link to="/register" class="register-link">¿No tienes una cuenta? Regístrate</router-link>
+    <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
+    <router-link to="/register" class="register-link">Crear una cuenta</router-link>
   </div>
 </template>
 
 <script>
-import ApiService from '../../services/ApiService';
+import ApiService from '@/services/ApiService';
 
 export default {
   data() {
     return {
-      email: '',
-      password: ''
+      usuario_acceso: '',
+      contrasena_acceso: '',
+      errorMessage: ''
     };
   },
   methods: {
     async login() {
       try {
-        await ApiService.login(this.email, this.password);
-        alert('Inicio de sesión exitoso');
-        this.$router.push({ name: 'Home' });
+        const response = await ApiService.login(this.usuario_acceso, this.contrasena_acceso);
+
+        if (response.success) {
+          this.$router.push({ name: 'Home' });
+        } else {
+          this.errorMessage = response.message;
+        }
       } catch (error) {
-        console.error('Error durante el inicio de sesión:', error);
-        alert('Usuario o contraseña incorrectos.');
+        this.errorMessage = 'Error de servidor';
+        console.error(error);
       }
     }
   }
@@ -89,5 +95,10 @@ button:hover {
 
 .register-link:hover {
   text-decoration: underline;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
 }
 </style>

@@ -1,67 +1,97 @@
 <template>
-  <div class="login-card">
+  <div class="register-card">
     <h2>Crear Cuenta</h2>
     <form @submit.prevent="register">
       <div class="form-group">
-        <label>Nombre:</label>
-        <input type="text" v-model="nombre" required />
+        <label>Usuario:</label>
+        <input type="text" v-model="usuario_acceso" required />
       </div>
       <div class="form-group">
-        <label>Apellido:</label>
-        <input type="text" v-model="apellido" required />
+        <label>Correo:</label>
+        <input type="email" v-model="correo" required />
       </div>
       <div class="form-group">
-        <label>Rol:</label>
-        <select v-model="rol" required>
-          <option value="user">Usuario</option>
-          <option value="admin">Administrador</option>
-        </select>
+        <label>Contraseña:</label>
+        <input type="password" v-model="contrasena_acceso" required />
       </div>
       <div class="form-group">
-        <label>Email:</label>
-        <input type="email" v-model="email" required />
+        <label>Confirmar Contraseña:</label>
+        <input type="password" v-model="confirmarContrasena" required />
       </div>
       <div class="form-group">
-        <label>Password:</label>
-        <input type="password" v-model="password" required />
+        <label>DNI:</label>
+        <input type="text" v-model="dni_cliente" required />
       </div>
       <div class="form-group">
-        <label>Confirmar Password:</label>
-        <input type="password" v-model="confirmPassword" required />
+        <label>Nombre Completo:</label>
+        <input type="text" v-model="nombre_completo_cliente" required />
+      </div>
+      <div class="form-group">
+        <label>Dirección:</label>
+        <input type="text" v-model="direccion_cliente" />
+      </div>
+      <div class="form-group">
+        <label>Teléfono:</label>
+        <input type="text" v-model="telefono_cliente" />
       </div>
       <button type="submit">Crear Cuenta</button>
     </form>
+    <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
+    <p v-if="successMessage" class="success">{{ successMessage }}</p>
     <router-link to="/" class="register-link">Ya tengo una cuenta</router-link>
   </div>
 </template>
 
 <script>
-import ApiService from '../..//services/ApiService';
+import ApiService from '@/services/ApiService';
 
 export default {
   data() {
     return {
-      nombre: '',
-      apellido: '',
-      rol: 'user',
-      email: '',
-      password: '',
-      confirmPassword: ''
+      usuario_acceso: '',
+      correo: '',
+      contrasena_acceso: '',
+      confirmarContrasena: '',
+      dni_cliente: '',
+      nombre_completo_cliente: '',
+      direccion_cliente: '',
+      telefono_cliente: '',
+      errorMessage: '',
+      successMessage: ''
     };
   },
   methods: {
     async register() {
-      if (this.password !== this.confirmPassword) {
-        alert("Las contraseñas no coinciden.");
+      if (this.contrasena_acceso !== this.confirmarContrasena) {
+        this.errorMessage = "Las contraseñas no coinciden.";
         return;
       }
+
+      const datos = {
+        usuario_acceso: this.usuario_acceso,
+        correo: this.correo,
+        contrasena_acceso: this.contrasena_acceso,
+        dni_cliente: this.dni_cliente,
+        nombre_completo_cliente: this.nombre_completo_cliente,
+        direccion_cliente: this.direccion_cliente,
+        telefono_cliente: this.telefono_cliente
+      };
+
       try {
-        await ApiService.register(this.email, this.nombre, this.rol, this.password);
-        alert('Registro exitoso. Ahora puedes iniciar sesión.');
-        this.$router.push({ name: 'Login' });
+        const response = await ApiService.registrarUsuario(datos);
+
+        if (response.success) {
+          this.successMessage = 'Usuario registrado exitosamente. Ahora puedes iniciar sesión.';
+          this.errorMessage = '';
+          this.$router.push({ name: 'Login' });
+        } else {
+          this.errorMessage = response.message;
+          this.successMessage = '';
+        }
       } catch (error) {
-        console.error('Error durante el registro:', error);
-        alert('Error al registrar. Inténtalo de nuevo.');
+        this.errorMessage = 'Error de servidor';
+        this.successMessage = '';
+        console.error(error);
       }
     }
   }
@@ -69,7 +99,7 @@ export default {
 </script>
 
 <style scoped>
-.login-card {
+.register-card {
   background: white;
   padding: 2rem;
   border-radius: 10px;
@@ -83,7 +113,7 @@ export default {
   margin-bottom: 1rem;
 }
 
-input, select {
+input {
   width: 100%;
   padding: 0.5rem;
   margin-top: 0.3rem;
@@ -116,5 +146,15 @@ button:hover {
 
 .register-link:hover {
   text-decoration: underline;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.success {
+  color: green;
+  margin-top: 10px;
 }
 </style>
