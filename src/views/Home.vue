@@ -12,16 +12,30 @@
     </header>
 
     <main class="home-content">
-      <h2>Bienvenido</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rutrum aliquam
-        aliquet. In mattis a sapien id pharetra. Maecenas blandit sem justo. Pellentesque
-        habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-        Suspendisse iaculis ornare sem ut interdum. Duis luctus pulvinar nunc, a ornare magna
-        facilisis et. In elementum congue purus, in consequat leo pellentesque at. Maecenas
-        lobortis neque aliquam orci accumsan, ac gravida enim imperdiet. Praesent sed ligula
-        eros. Sed eleifend sollicitudin dui vitae auctor. In ipsum nisi, maximus et tincidunt
-        a, posuere efficitur mauris. Nulla facilisi.
+      <p style="font-size: 16px; color: white;">
+        <strong>¡Gracias por elegirnos como su aliado en la administración eficiente de sus procesos! </strong>
+
+        <br> Con nuestro sistema, podrá optimizar sus operaciones a través de funcionalidades diseñadas para simplificar
+        y automatizar tareas clave, como:
+      </p>
+
+
+      <ul
+        style="list-style: none; padding: 0; font-size: 16px; color: #FFFFFF; text-align: left; display: inline-block;">
+        <li><span style="color: black;">✔</span> <strong>Configuración de tasas</strong>: Ajuste y gestione las
+          tasasegún las necesidades de su negocio con precisión y rapidez.</li>
+        <li><span style="color: black;">✔</span> <strong>Conciliación de reportes</strong>: Analice, valide y
+          unifique datos para obtener informes claros y confiables.</li>
+        <li><span style="color: black;">✔</span> <strong>Impresión profesional</strong>: Genere documentos listos
+          para imprimir con un diseño limpio y adaptable a sus estándares.</li>
+      </ul>
+
+      <p style="font-size: 16px; color: #FFFFFF;">
+        Nuestro objetivo es brindarle una experiencia intuitiva y poderosa para que pueda enfocarse en lo que más
+        importa: el crecimiento y éxito de su organización.
+      </p>
+      <p style="font-size: 16px; color: black;">
+        <strong>¡Comencemos a gestionar eficientemente juntos! 🚀</strong>
       </p>
     </main>
 
@@ -51,7 +65,8 @@ export default {
 }
 
 .home-header {
-  background-color: #2b9bb8; /* Color intermedio de la paleta */
+  background-color: #2b9bb8;
+  /* Color intermedio de la paleta */
   color: #ffffff;
   padding: 20px;
   text-align: center;
@@ -76,8 +91,10 @@ export default {
 }
 
 .navigation-menu a:hover {
-  background-color: #49b6d0; /* Azul claro en hover */
-  color: #2193b0; /* Azul fuerte para contraste */
+  background-color: #49b6d0;
+  /* Azul claro en hover */
+  color: #2193b0;
+  /* Azul fuerte para contraste */
 }
 
 .logout-button {
@@ -85,7 +102,8 @@ export default {
   right: 20px;
   top: 20px;
   padding: 5px 10px;
-  background-color: #2b9bb8; /* Azul claro de la paleta */
+  background-color: #2b9bb8;
+  /* Azul claro de la paleta */
   border: none;
   border-radius: 5px;
   color: white;
@@ -94,7 +112,8 @@ export default {
 }
 
 .logout-button:hover {
-  background-color: #cb2d3e; /* Azul un poco más oscuro */
+  background-color: #cb2d3e;
+  /* Azul un poco más oscuro */
 }
 
 .home-content {
@@ -104,24 +123,28 @@ export default {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  color: #ffffff; /* Texto en blanco para mejor visibilidad */
+  color: #ffffff;
+  /* Texto en blanco para mejor visibilidad */
   text-align: center;
 }
 
 .home-content h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #ffffff; /* Título en blanco */
+  color: #ffffff;
+  /* Título en blanco */
 }
 
 .home-content p {
   max-width: 700px;
   line-height: 1.6;
-  color: #ffffff; /* Texto en blanco */
+  color: #ffffff;
+  /* Texto en blanco */
 }
 
 .home-footer {
-  background-color: #2b9bb8; /* Color del encabezado para coherencia */
+  background-color: #2b9bb8;
+  /* Color del encabezado para coherencia */
   color: #ffffff;
   text-align: center;
   padding: 10px;

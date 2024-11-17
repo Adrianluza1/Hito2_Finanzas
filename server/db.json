@@ -54,6 +54,16 @@
       "direccion_cliente": "202 Cedar St",
       "telefono_cliente": "555-3456",
       "cartera_id": 5
+    },
+    {
+      "id": "4f47",
+      "usuario_acceso": "Franco",
+      "correo": "Franco@gmail.com",
+      "contrasena_acceso": "12345",
+      "dni_cliente": "75986324",
+      "nombre_completo_cliente": "Franco Escamilla",
+      "direccion_cliente": "chorrillos",
+      "telefono_cliente": "986331456"
     }
   ],
   "cartera": [
@@ -172,11 +182,11 @@
       "facturas": [
         {
           "id": 401,
-          "fecha_emision": "2024-01-05",
+          "fecha_emision": "2024-01-12",
           "fecha_vencimiento": "2024-04-05",
-          "capital": 5000,
-          "detalle_factura": "Factura de alquiler",
-          "tasa_conversion_moneda": 1.2,
+          "capital": 300,
+          "detalle_factura": "Factura",
+          "tasa_conversion_moneda": 1.21,
           "fecha_reporte": "2024-01-06",
           "descripcion_factura": "Pago de alquiler",
           "monto_nominal": 6000,
@@ -250,6 +260,13 @@
         }
       ],
       "monto_total_facturas": 6275
+    },
+    {
+      "id": "9177",
+      "user_id": "4f47",
+      "cantidad_total_facturas": 0,
+      "facturas": [],
+      "monto_total_facturas": 0
     }
   ]
 }

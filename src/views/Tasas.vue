@@ -1,7 +1,7 @@
 <template>
   <div class="home-container">
     <header class="home-header">
-      <h1>Bienvenido al Sistema de Gestión</h1>
+      <h1>Configuración de Tasas </h1>
       <nav class="navigation-menu">
         <router-link to="/home">Inicio</router-link>
         <router-link to="/tasas">Configuración de Tasas</router-link>
