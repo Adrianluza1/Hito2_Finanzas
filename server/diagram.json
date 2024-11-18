@@ -1,0 +1,39 @@
+{
+  "Usuario": {
+    "idUsuario": "varchar(30)",
+    "nombre": "varchar(30)",
+    "apellido": "varchar(30)",
+    "email": "varchar(30)",
+    "password": "varchar(255)"
+  },
+  "Cartera": {
+    "idCartera": "varchar(30)",
+    "idUsuario": "varchar(30)",
+    "nombre": "varchar(50)"
+  },
+  "Factura": {
+    "idFactura": "varchar(30)",
+    "idCartera": "varchar(30)",
+    "monto": "decimal(15, 2)",
+    "fechaEmision": "date",
+    "fechaVencimiento": "date",
+    "tasaNominal": "decimal(5, 2)",
+    "tasaEfectiva": "decimal(5, 2)"
+  },
+  "Letra": {
+    "idLetra": "varchar(30)",
+    "idCartera": "varchar(30)",
+    "monto": "decimal(15, 2)",
+    "fechaEmision": "date",
+    "fechaVencimiento": "date",
+    "tasaNominal": "decimal(5, 2)",
+    "tasaEfectiva": "decimal(5, 2)"
+  },
+  "Reporte": {
+    "idReporte": "varchar(30)",
+    "idCartera": "varchar(30)",
+    "fechaReporte": "date",
+    "tcea": "decimal(5, 2)",
+    "montoTotal": "decimal(15, 2)"
+  }
+}

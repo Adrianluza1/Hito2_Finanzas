@@ -1,0 +1,299 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "usuario_acceso": "johndoe",
+      "correo": "jdoe@example.comx  ",
+      "contrasena_acceso": "7cKwn5CxKLjpDXP",
+      "dni_cliente": "12345678",
+      "nombre_completo_cliente": "John Doe",
+      "direccion_cliente": "123 Main St",
+      "telefono_cliente": "555-4875",
+      "cartera_id": 1
+    },
+    {
+      "id": "2",
+      "usuario_acceso": "asmith",
+      "correo": "asmith@example.com",
+      "contrasena_acceso": "password456",
+      "dni_cliente": "87654321",
+      "nombre_completo_cliente": "Alice Smith",
+      "direccion_cliente": "456 Elm St",
+      "telefono_cliente": "555-5678",
+      "cartera_id": 2
+    },
+    {
+      "id": "3",
+      "usuario_acceso": "bwilliams",
+      "correo": "bwilliams@example.com",
+      "contrasena_acceso": "password789",
+      "dni_cliente": "11223344",
+      "nombre_completo_cliente": "Bob Williams",
+      "direccion_cliente": "789 Oak St",
+      "telefono_cliente": "555-8765",
+      "cartera_id": 3
+    },
+    {
+      "id": "4",
+      "usuario_acceso": "ckelly",
+      "correo": "ckelly@example.com",
+      "contrasena_acceso": "password101",
+      "dni_cliente": "55667788",
+      "nombre_completo_cliente": "Carol Kelly",
+      "direccion_cliente": "101 Pine St",
+      "telefono_cliente": "555-4321",
+      "cartera_id": 4
+    },
+    {
+      "id": "5",
+      "usuario_acceso": "dmiller",
+      "correo": "dmiller@example.com",
+      "contrasena_acceso": "password202",
+      "dni_cliente": "33445566",
+      "nombre_completo_cliente": "Dave Miller",
+      "direccion_cliente": "202 Cedar St",
+      "telefono_cliente": "555-3456",
+      "cartera_id": 5
+    },
+    {
+      "id": "4f47",
+      "usuario_acceso": "Franco",
+      "correo": "Franco@gmail.com",
+      "contrasena_acceso": "12345",
+      "dni_cliente": "75986324",
+      "nombre_completo_cliente": "Franco Escamilla",
+      "direccion_cliente": "chorrillos",
+      "telefono_cliente": "986331456"
+    }
+  ],
+  "cartera": [
+    {
+      "id": "1",
+      "user_id": 1,
+      "cantidad_total_facturas": 5,
+      "facturas": [
+        {
+          "id": 101,
+          "fecha_emision": "2024-01-01",
+          "fecha_vencimiento": "2024-06-01",
+          "capital": 1000,
+          "detalle_factura": "Factura de servicios",
+          "tasa_conversion_moneda": 1.1,
+          "fecha_reporte": "2024-01-02",
+          "descripcion_factura": "Servicios de electricidad",
+          "monto_nominal": 1100,
+          "monto_descuento_total": 50,
+          "tasa_descuento_aplicada": 0.05,
+          "dias_restantes_vencimiento": 150
+        },
+        {
+          "id": 102,
+          "fecha_emision": "2024-02-01",
+          "fecha_vencimiento": "2024-07-01",
+          "capital": 2000,
+          "detalle_factura": "Factura de agua",
+          "tasa_conversion_moneda": 1.05,
+          "fecha_reporte": "2024-02-02",
+          "descripcion_factura": "Servicios de agua",
+          "monto_nominal": 2100,
+          "monto_descuento_total": 60,
+          "tasa_descuento_aplicada": 0.06,
+          "dias_restantes_vencimiento": 150
+        },
+        {
+          "id": 103,
+          "fecha_emision": "2024-03-01",
+          "fecha_vencimiento": "2024-08-01",
+          "capital": 1000,
+          "detalle_factura": "Factura de gas",
+          "tasa_conversion_moneda": 1.08,
+          "fecha_reporte": "2024-03-02",
+          "descripcion_factura": "Servicios de gas",
+          "monto_nominal": 1620,
+          "monto_descuento_total": 40,
+          "tasa_descuento_aplicada": 0.04,
+          "dias_restantes_vencimiento": 153
+        },
+        {
+          "id": 40,
+          "fechaEmision": "1111-11-11",
+          "fechaVencimiento": "0001-11-11",
+          "capital": 111,
+          "detalleFactura": "11",
+          "tasaConversionMoneda": 111,
+          "descripcionFactura": "11",
+          "montoNominal": 0,
+          "montoDescuentoTotal": 0,
+          "tasaDescuentoAplicada": 0,
+          "diasRestantesVencimiento": -738892
+        },
+        {
+          "id": 863,
+          "fecha_emision": "0011-11-11",
+          "fecha_vencimiento": "0011-11-11",
+          "capital": 111,
+          "detalle_factura": "111",
+          "tasa_conversion_moneda": 1111,
+          "fecha_reporte": "0001-11-11",
+          "descripcion_factura": "111",
+          "monto_nominal": 111,
+          "monto_descuento_total": 11,
+          "tasa_descuento_aplicada": 1111,
+          "dias_restantes_vencimiento": 111
+        }
+      ],
+      "monto_total_facturas": 4942
+    },
+    {
+      "id": "2",
+      "user_id": 2,
+      "cantidad_total_facturas": 2,
+      "facturas": [
+        {
+          "id": 201,
+          "fecha_emision": "2024-01-10",
+          "fecha_vencimiento": "2024-05-10",
+          "capital": 3000,
+          "detalle_factura": "Factura de servicios",
+          "tasa_conversion_moneda": 1.15,
+          "fecha_reporte": "2024-01-12",
+          "descripcion_factura": "Servicios de internet",
+          "monto_nominal": 3450,
+          "monto_descuento_total": 75,
+          "tasa_descuento_aplicada": 0.025,
+          "dias_restantes_vencimiento": 120
+        },
+        {
+          "id": 202,
+          "fecha_emision": "2024-02-10",
+          "fecha_vencimiento": "2024-06-10",
+          "capital": 2500,
+          "detalle_factura": "Factura de televisión",
+          "tasa_conversion_moneda": 1.12,
+          "fecha_reporte": "2024-02-11",
+          "descripcion_factura": "Servicios de televisión",
+          "monto_nominal": 2800,
+          "monto_descuento_total": 55,
+          "tasa_descuento_aplicada": 0.022,
+          "dias_restantes_vencimiento": 119
+        }
+      ],
+      "monto_total_facturas": 6250
+    },
+    {
+      "id": "3",
+      "user_id": 3,
+      "cantidad_total_facturas": 1,
+      "facturas": [
+        {
+          "id": 301,
+          "fecha_emision": "2024-01-10",
+          "fecha_vencimiento": "2025-01-01",
+          "capital": 10000,
+          "detalle_factura": "Factura de seguro",
+          "tasa_conversion_moneda": 12,
+          "fecha_reporte": "2024-01-16",
+          "descripcion_factura": "Seguro de salud",
+          "monto_nominal": 1308,
+          "monto_descuento_total": 30,
+          "tasa_descuento_aplicada": 0.025,
+          "dias_restantes_vencimiento": 90
+        }
+      ],
+      "monto_total_facturas": 1308
+    },
+    {
+      "id": "4",
+      "user_id": 4,
+      "cantidad_total_facturas": 3,
+      "facturas": [
+        {
+          "id": 401,
+          "fecha_emision": "2024-01-12",
+          "fecha_vencimiento": "2024-04-05",
+          "capital": 300,
+          "detalle_factura": "Factura",
+          "tasa_conversion_moneda": 1.21,
+          "fecha_reporte": "2024-01-06",
+          "descripcion_factura": "Pago de alquiler",
+          "monto_nominal": 6000,
+          "monto_descuento_total": 100,
+          "tasa_descuento_aplicada": 0.02,
+          "dias_restantes_vencimiento": 90
+        },
+        {
+          "id": 402,
+          "fecha_emision": "2024-02-05",
+          "fecha_vencimiento": "2024-05-05",
+          "capital": 3500,
+          "detalle_factura": "Factura de servicios",
+          "tasa_conversion_moneda": 1.1,
+          "fecha_reporte": "2024-02-06",
+          "descripcion_factura": "Servicios de limpieza",
+          "monto_nominal": 3850,
+          "monto_descuento_total": 70,
+          "tasa_descuento_aplicada": 0.02,
+          "dias_restantes_vencimiento": 89
+        },
+        {
+          "id": 403,
+          "fecha_emision": "2024-03-05",
+          "fecha_vencimiento": "2024-06-05",
+          "capital": 4500,
+          "detalle_factura": "Factura de mantenimiento",
+          "tasa_conversion_moneda": 1.08,
+          "fecha_reporte": "2024-03-06",
+          "descripcion_factura": "Servicios de mantenimiento",
+          "monto_nominal": 4860,
+          "monto_descuento_total": 90,
+          "tasa_descuento_aplicada": 0.02,
+          "dias_restantes_vencimiento": 92
+        }
+      ],
+      "monto_total_facturas": 14710
+    },
+    {
+      "id": "5",
+      "user_id": 5,
+      "cantidad_total_facturas": 2,
+      "facturas": [
+        {
+          "id": 501,
+          "fecha_emision": "2024-01-20",
+          "fecha_vencimiento": "2024-07-20",
+          "capital": 2500,
+          "detalle_factura": "Factura de préstamo",
+          "tasa_conversion_moneda": 1.13,
+          "fecha_reporte": "2024-01-21",
+          "descripcion_factura": "Pago de préstamo",
+          "monto_nominal": 2825,
+          "monto_descuento_total": 125,
+          "tasa_descuento_aplicada": 0.05,
+          "dias_restantes_vencimiento": 180
+        },
+        {
+          "id": 502,
+          "fecha_emision": "2024-02-20",
+          "fecha_vencimiento": "2024-08-20",
+          "capital": 3000,
+          "detalle_factura": "Factura de hipoteca",
+          "tasa_conversion_moneda": 1.15,
+          "fecha_reporte": "2024-02-21",
+          "descripcion_factura": "Pago de hipoteca",
+          "monto_nominal": 3450,
+          "monto_descuento_total": 150,
+          "tasa_descuento_aplicada": 0.05,
+          "dias_restantes_vencimiento": 180
+        }
+      ],
+      "monto_total_facturas": 6275
+    },
+    {
+      "id": "9177",
+      "user_id": "4f47",
+      "cantidad_total_facturas": 0,
+      "facturas": [],
+      "monto_total_facturas": 0
+    }
+  ]
+}
