@@ -16,6 +16,19 @@ export default class TCEACalculator {
         let totalMonto = 0;
         let totalTasaEfectiva = 0;
 
+        var monto = int
+        var tasaDescuento
+        var fechaEmision = Date
+        var fechaVencimiento = Date
+        var fechaDescuento = Date
+
+        const diffTime = Math.abs(fechaDescuento - fechaVencimiento);
+        const diasRestantes = Math.floor(diffTime / (1000 * 60 * 60 * 24)); 
+
+        interesesAdelantados = monto*(tasaDescuento*(diasRestantes/360))
+        valorNeto = monto - interesesAdelantados
+        TCEA = [(monto/valorNeto), pwr(360/diasRestantes)] - 1
+
         // Acumulamos el monto y la tasa efectiva de cada factura
         facturas.forEach((factura) => {
             totalMonto += factura.monto;
