@@ -27,18 +27,28 @@ import DatosService from '../../services/registro/DatosService';
 export default {
   data() {
     return {
-      reporte: null
+      reporte: null,
     };
   },
   async created() {
     try {
-      const carteraId = 1; // Cambia este ID según el contexto de tu aplicación
+      // Obtén el usuario logueado desde localStorage
+      const usuario = JSON.parse(localStorage.getItem("usuario"));
+      if (!usuario || !usuario.cartera_id) {
+        console.error("Usuario no encontrado o sin cartera asignada.");
+        return;
+      }
+
+      // Usa el ID de la cartera del usuario logueado para obtener los datos
+      const carteraId = usuario.cartera_id;
       const cartera = await DatosService.obtenerDatosCartera(carteraId);
+
+      // Genera el reporte con los datos obtenidos
       this.reporte = Report.generarReporte(cartera);
     } catch (error) {
       console.error("Error al cargar el reporte de la cartera:", error.message);
     }
-  }
+  },
 };
 </script>
 

@@ -12,6 +12,7 @@
     </header>
 
     <main class="home-content">
+      <img src="@/assets/Logo.webp" alt="Logo" class="logo-image" />
       <p style="font-size: 16px; color: white;">
         <strong>¡Gracias por elegirnos como su aliado en la administración eficiente de sus procesos! </strong>
 
@@ -19,9 +20,8 @@
         y automatizar tareas clave, como:
       </p>
 
-
       <ul
-        style="list-style: none; padding: 0; font-size: 16px; color: #FFFFFF; text-align: left; display: inline-block;">
+          style="list-style: none; padding: 0; font-size: 16px; color: #FFFFFF; text-align: left; display: inline-block;">
         <li><span style="color: black;">✔</span> <strong>Configuración de tasas</strong>: Ajuste y gestione las
           tasasegún las necesidades de su negocio con precisión y rapidez.</li>
         <li><span style="color: black;">✔</span> <strong>Conciliación de reportes</strong>: Analice, valide y
@@ -66,12 +66,16 @@ export default {
 
 .home-header {
   background-color: #2b9bb8;
-  /* Color intermedio de la paleta */
   color: #ffffff;
   padding: 20px;
   text-align: center;
   position: relative;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-image {
+  max-width: 150px;
+  margin-bottom: 10px;
 }
 
 .navigation-menu {
@@ -92,9 +96,7 @@ export default {
 
 .navigation-menu a:hover {
   background-color: #49b6d0;
-  /* Azul claro en hover */
   color: #2193b0;
-  /* Azul fuerte para contraste */
 }
 
 .logout-button {
@@ -103,7 +105,6 @@ export default {
   top: 20px;
   padding: 5px 10px;
   background-color: #2b9bb8;
-  /* Azul claro de la paleta */
   border: none;
   border-radius: 5px;
   color: white;
@@ -113,7 +114,6 @@ export default {
 
 .logout-button:hover {
   background-color: #cb2d3e;
-  /* Azul un poco más oscuro */
 }
 
 .home-content {
@@ -124,27 +124,11 @@ export default {
   align-items: center;
   padding: 20px;
   color: #ffffff;
-  /* Texto en blanco para mejor visibilidad */
   text-align: center;
-}
-
-.home-content h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #ffffff;
-  /* Título en blanco */
-}
-
-.home-content p {
-  max-width: 700px;
-  line-height: 1.6;
-  color: #ffffff;
-  /* Texto en blanco */
 }
 
 .home-footer {
   background-color: #2b9bb8;
-  /* Color del encabezado para coherencia */
   color: #ffffff;
   text-align: center;
   padding: 10px;

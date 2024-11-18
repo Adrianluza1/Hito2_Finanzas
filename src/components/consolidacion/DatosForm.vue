@@ -30,12 +30,20 @@ import DatosService from '../../services/registro/DatosService';
 export default {
   data() {
     return {
-      cartera: null
+      cartera: null,
     };
   },
   async created() {
     try {
-      const carteraId = 1; // Cambia este ID según el contexto de tu aplicación
+      // Obtén el usuario logueado desde localStorage
+      const usuario = JSON.parse(localStorage.getItem("usuario"));
+      if (!usuario || !usuario.cartera_id) {
+        console.error("Usuario no encontrado o sin cartera asignada.");
+        return;
+      }
+
+      // Usa el ID de la cartera del usuario logueado para obtener los datos
+      const carteraId = usuario.cartera_id;
       this.cartera = await DatosService.obtenerDatosCartera(carteraId);
     } catch (error) {
       console.error("Error al cargar los datos de la cartera:", error.message);
@@ -44,14 +52,25 @@ export default {
   methods: {
     calcularMontoTotal(facturas) {
       return facturas.reduce((total, factura) => total + factura.capital, 0);
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
 .datos-form {
   padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+h2 {
+  color: #2b9bb8;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .factura-card {
@@ -59,5 +78,18 @@ export default {
   padding: 15px;
   margin-top: 15px;
   border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.factura-card h3 {
+  color: #2b9bb8;
+}
+
+p {
+  margin: 5px 0;
+}
+
+strong {
+  color: #333;
 }
 </style>

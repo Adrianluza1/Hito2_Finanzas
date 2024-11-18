@@ -22,9 +22,13 @@ export default {
   },
   async created() {
     try {
-      const usuarioId = 1; // Cambia este ID según el contexto de tu aplicación
-      this.usuario = await UserService.obtenerDatosUsuario(usuarioId);
-      console.log("Usuario cargado:", this.usuario); // Log para verificar datos cargados
+      const usuarioLogueado = JSON.parse(localStorage.getItem('usuario'));
+      if (usuarioLogueado && usuarioLogueado.id) {
+        this.usuario = await UserService.obtenerDatosUsuario(usuarioLogueado.id);
+        console.log("Usuario cargado:", this.usuario); // Log para verificar datos cargados
+      } else {
+        console.error("No hay un usuario logueado.");
+      }
     } catch (error) {
       console.error("Error al cargar la información del usuario:", error.message);
     }
@@ -35,5 +39,9 @@ export default {
 <style scoped>
 .user-form {
   padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin: 20px;
 }
 </style>

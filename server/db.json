@@ -70,7 +70,7 @@
     {
       "id": "1",
       "user_id": 1,
-      "cantidad_total_facturas": 5,
+      "cantidad_total_facturas": 6,
       "facturas": [
         {
           "id": 101,
@@ -140,9 +140,23 @@
           "monto_descuento_total": 11,
           "tasa_descuento_aplicada": 1111,
           "dias_restantes_vencimiento": 111
+        },
+        {
+          "id": 303,
+          "fecha_emision": "2024-11-18",
+          "fecha_vencimiento": "2025-02-26",
+          "capital": 500,
+          "detalle_factura": "Carro",
+          "tasa_conversion_moneda": 3,
+          "fecha_reporte": "2024-11-29",
+          "descripcion_factura": "Compra de un carro",
+          "monto_nominal": 213,
+          "monto_descuento_total": 512,
+          "tasa_descuento_aplicada": 212,
+          "dias_restantes_vencimiento": 1
         }
       ],
-      "monto_total_facturas": 4942
+      "monto_total_facturas": 5442
     },
     {
       "id": "2",
