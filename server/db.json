@@ -3,7 +3,7 @@
     {
       "id": "1",
       "usuario_acceso": "johndoe",
-      "correo": "jdoe@example.com",
+      "correo": "jdoe@example.comx  ",
       "contrasena_acceso": "7cKwn5CxKLjpDXP",
       "dni_cliente": "12345678",
       "nombre_completo_cliente": "John Doe",
@@ -70,7 +70,7 @@
     {
       "id": "1",
       "user_id": 1,
-      "cantidad_total_facturas": 3,
+      "cantidad_total_facturas": 5,
       "facturas": [
         {
           "id": 101,
@@ -113,9 +113,36 @@
           "monto_descuento_total": 40,
           "tasa_descuento_aplicada": 0.04,
           "dias_restantes_vencimiento": 153
+        },
+        {
+          "id": 40,
+          "fechaEmision": "1111-11-11",
+          "fechaVencimiento": "0001-11-11",
+          "capital": 111,
+          "detalleFactura": "11",
+          "tasaConversionMoneda": 111,
+          "descripcionFactura": "11",
+          "montoNominal": 0,
+          "montoDescuentoTotal": 0,
+          "tasaDescuentoAplicada": 0,
+          "diasRestantesVencimiento": -738892
+        },
+        {
+          "id": 863,
+          "fecha_emision": "0011-11-11",
+          "fecha_vencimiento": "0011-11-11",
+          "capital": 111,
+          "detalle_factura": "111",
+          "tasa_conversion_moneda": 1111,
+          "fecha_reporte": "0001-11-11",
+          "descripcion_factura": "111",
+          "monto_nominal": 111,
+          "monto_descuento_total": 11,
+          "tasa_descuento_aplicada": 1111,
+          "dias_restantes_vencimiento": 111
         }
       ],
-      "monto_total_facturas": 4720
+      "monto_total_facturas": 4942
     },
     {
       "id": "2",
@@ -160,11 +187,11 @@
       "facturas": [
         {
           "id": 301,
-          "fecha_emision": "2024-01-15",
-          "fecha_vencimiento": "2024-04-15",
-          "capital": 1200,
+          "fecha_emision": "2024-01-10",
+          "fecha_vencimiento": "2025-01-01",
+          "capital": 10000,
           "detalle_factura": "Factura de seguro",
-          "tasa_conversion_moneda": 1.09,
+          "tasa_conversion_moneda": 12,
           "fecha_reporte": "2024-01-16",
           "descripcion_factura": "Seguro de salud",
           "monto_nominal": 1308,
