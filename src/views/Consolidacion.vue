@@ -4,9 +4,9 @@
       <h1>Consolidar Reporte de Letras/Facturas</h1>
       <nav class="navigation-menu">
         <router-link to="/home">Inicio</router-link>
-        <router-link to="/tasas">Configuración de Tasas</router-link>
-        <router-link to="/consolidacion">Consolidacion de Reporte</router-link>
-        <router-link to="/imprimir">Impresión de Reporte</router-link>
+        <router-link to="/tasas">Cartera</router-link>
+        <router-link to="/consolidacion">Reporte</router-link>
+        <router-link to="/imprimir">Resumen</router-link>
       </nav>
     </div>
 
