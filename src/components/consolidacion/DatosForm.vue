@@ -15,7 +15,7 @@
         <p><strong>Fecha de Reporte:</strong> {{ factura.fecha_reporte }}</p>
         <p><strong>Descripción:</strong> {{ factura.descripcion_factura }}</p>
         <p><strong>Monto Nominal:</strong> {{ factura.monto_nominal }}</p>
-        <p><strong>Descuento Total:</strong> {{ factura.monto_descuento_total }}</p>
+        <!--p><strong>Descuento Total:</strong> {{ factura.monto_descuento_total }}</p-->
         <p><strong>Tasa de Descuento Aplicada:</strong> {{ factura.tasa_descuento_aplicada }}</p>
         <p><strong>Días Restantes para Vencimiento:</strong> {{ factura.dias_restantes_vencimiento }}</p>
       </div>

@@ -10,9 +10,11 @@
       <div v-for="factura in reporte.detalles" :key="factura.id" class="factura-details">
         <h4>Factura {{ factura.id }}</h4>
         <p><strong>Valor Nominal:</strong> {{ factura.valorNominal }}</p>
-        <p><strong>Descuento Total:</strong> {{ factura.descuentoTotal }}</p>
         <p><strong>Capital:</strong> {{ factura.capital }}</p>
         <p><strong>Tasa:</strong> {{ factura.tasa }}</p>
+        <br>
+        <p><strong>Descuento Total:</strong> {{ factura.descuentoTotal }}</p>
+        <p><strong>Valor Neto:</strong> {{ factura.valorNominal - factura.descuentoTotal }}</p>
         <p><strong>TCEA:</strong> {{ factura.tcea }}</p>
       </div>
     </div>

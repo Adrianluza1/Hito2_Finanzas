@@ -18,11 +18,14 @@ export default class Calculator {
         // Iterar sobre cada factura para calcular el TCEA y detalles específicos
         cartera.facturas.forEach(factura => {
             const valorNominal = factura.monto_nominal;
-            const descuentoTotal = factura.monto_descuento_total;
+            const descuentoTotal = valorNominal*(factura.tasa_descuento_aplicada * (factura.dias_restantes_vencimiento / 360)).toFixed(4);
+            //const descuentoTotal = (factura.tasa * (factura.dias_restantes_vencimiento / 365) );
             const capital = factura.capital;
             const tasa = (valorNominal - descuentoTotal) / capital;
 
-            const tcea = (tasa * 100).toFixed(2); // TCEA en porcentaje
+            const tcea = ( ( Math.pow(valorNominal/(valorNominal-descuentoTotal),360/factura.dias_restantes_vencimiento  )-1)*100).toFixed(2); // TCEA en porcentaje
+
+
             totalTCEA += parseFloat(tcea);
 
             // Añadir los detalles de cálculo de esta factura al array

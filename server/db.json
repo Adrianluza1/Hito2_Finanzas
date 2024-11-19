@@ -70,7 +70,7 @@
     {
       "id": "1",
       "user_id": 1,
-      "cantidad_total_facturas": 6,
+      "cantidad_total_facturas": 7,
       "facturas": [
         {
           "id": 101,
@@ -154,9 +154,23 @@
           "monto_descuento_total": 512,
           "tasa_descuento_aplicada": 212,
           "dias_restantes_vencimiento": 1
+        },
+        {
+          "id": 793,
+          "fecha_emision": "2024-01-15",
+          "fecha_vencimiento": "2024-07-15",
+          "capital": 2200,
+          "detalle_factura": "Prueba Final",
+          "tasa_conversion_moneda": 1,
+          "fecha_reporte": "2024-11-18",
+          "descripcion_factura": "Ejemplo 2",
+          "monto_nominal": 2000,
+          "monto_descuento_total": 0,
+          "tasa_descuento_aplicada": 0.06,
+          "dias_restantes_vencimiento": 136
         }
       ],
-      "monto_total_facturas": 5442
+      "monto_total_facturas": 7642
     },
     {
       "id": "2",
