@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // URL base de la API utilizada para realizar solicitudes HTTP
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://database-ge4e.onrender.com';
 
 /**
  * Clase DatosService

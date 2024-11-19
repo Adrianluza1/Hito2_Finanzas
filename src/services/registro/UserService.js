@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://database-ge4e.onrender.com';
 
 export default class UserService {
     static async obtenerDatosUsuario(usuarioId) {

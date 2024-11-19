@@ -74,7 +74,7 @@ export default {
     };
   },
   async created() {
-    const usuarioId = 1; // Cambiar según el contexto
+    const usuarioId = JSON.parse(localStorage.getItem("usuario")); // Cambiar según el contexto
     this.reporte = await ReporteGenerator.generarReporte(usuarioId);
   },
   methods: {

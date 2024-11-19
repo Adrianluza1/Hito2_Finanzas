@@ -105,14 +105,14 @@ export default {
       this.nuevaFactura.id = Math.floor(Math.random() * 1000) + 1;
 
       try {
-        const response = await axios.get(`http://localhost:3000/cartera/${this.carteraId}`);
+        const response = await axios.get(`https://database-ge4e.onrender.com/cartera/${this.carteraId}`);
         const cartera = response.data;
 
         cartera.facturas.push(this.nuevaFactura);
         cartera.cantidad_total_facturas = cartera.facturas.length;
         cartera.monto_total_facturas += this.nuevaFactura.capital;
 
-        await axios.put(`http://localhost:3000/cartera/${this.carteraId}`, cartera);
+        await axios.put(`https://database-ge4e.onrender.com/cartera/${this.carteraId}`, cartera);
 
         alert("Factura registrada con éxito");
         this.resetFormulario();

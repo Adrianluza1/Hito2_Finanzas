@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 // Definición de las URL de la API
-const API_URL = "http://localhost:3000/user";
-const CARTERA_URL = "http://localhost:3000/cartera";
+const API_URL = "https://database-ge4e.onrender.com/user";
+const CARTERA_URL = "https://database-ge4e.onrender.com/cartera";
 
 export default {
     /**
